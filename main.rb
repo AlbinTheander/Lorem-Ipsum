@@ -3,6 +3,13 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/lib'
 
 require "rubygems"
 require "sinatra"
+
+get / do
+   "Hello world"
+end
+
+=begin
+
 require "string_follower"
 
 get '/text/:lang' do
@@ -32,3 +39,5 @@ get '/text/:lang' do
   end
   result
 end
+
+=end
