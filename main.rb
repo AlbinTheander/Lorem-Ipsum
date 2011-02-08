@@ -1,6 +1,7 @@
 # encoding: utf-8
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/lib'
 
+require "rubygems"
 require "sinatra"
 require "string_follower"
 
@@ -13,7 +14,6 @@ get '/text/:lang' do
 
   files = file_names.map { |file_name| File.new(folder + "/" + file_name, "rt", {:encoding => "utf-8"}) }
 
-  puts files
   files[0].lines do |line|
     string_follower.feed(line.downcase + " ")
   end
