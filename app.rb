@@ -3,14 +3,11 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/lib'
 
 require "rubygems"
 require "sinatra"
-
-get / do
-   "Hello world"
-end
-
-=begin
-
 require "string_follower"
+
+get "/" do
+  redirect "/index.html"
+end
 
 get '/text/:lang' do
 
@@ -25,7 +22,7 @@ get '/text/:lang' do
     string_follower.feed(line.downcase + " ")
   end
 
-  prefix = "när "
+  prefix = "att "
   prefix = "att " if params[:lang] == "se"
   prefix = "das " if params[:lang] == "de"
   prefix = "the " if params[:lang] == "en"
@@ -39,5 +36,3 @@ get '/text/:lang' do
   end
   result
 end
-
-=end
