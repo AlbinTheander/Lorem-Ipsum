@@ -28,12 +28,12 @@ get '/text/:lang' do
   prefix = "the " if params[:lang] == "en"
   result = prefix.dup
 
-# 800.times do |i|
-#    ch = string_follower.random(prefix)
-#    result << ch
-#    prefix << ch
-#    prefix[0] = ""
-#  end
-#  result
+ 800.times do |i|
+    ch = string_follower.random(prefix)
+    result << ch
+    prefix << ch
+    prefix[0] = ""
+  end
+  result
 	"Hej"
 end
