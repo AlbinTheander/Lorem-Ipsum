@@ -11,7 +11,7 @@ end
 
 get '/text/:lang' do
 
-#  string_follower = StringFollower.new
+  string_follower = StringFollower.new
 #  folder = "data/" + params[:lang]
 
 #  file_names= Dir.entries(folder)-[".", ".."]
