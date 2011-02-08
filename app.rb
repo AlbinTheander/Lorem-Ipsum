@@ -35,5 +35,4 @@ get '/text/:lang' do
     prefix[0] = ""
   end
   result
-	"Hej"
 end
