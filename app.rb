@@ -16,11 +16,11 @@ get '/text/:lang' do
 
   file_names= Dir.entries(folder)-[".", ".."]
 
-#  files = file_names.map { |file_name| File.new(folder + "/" + file_name, "rt", {:encoding => "utf-8"}) }
+  files = file_names.map { |file_name| File.new(folder + "/" + file_name, "rt", {:encoding => "utf-8"}) }
 
-#  files[0].lines do |line|
-#    string_follower.feed(line.downcase + " ")
-#  end
+  files[0].lines do |line|
+    string_follower.feed(line.downcase + " ")
+  end
 
 #  prefix = "att "
 #  prefix = "att " if params[:lang] == "se"
