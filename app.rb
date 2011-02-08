@@ -22,11 +22,11 @@ get '/text/:lang' do
     string_follower.feed(line.downcase + " ")
   end
 
-#  prefix = "att "
-#  prefix = "att " if params[:lang] == "se"
-#  prefix = "das " if params[:lang] == "de"
-#  prefix = "the " if params[:lang] == "en"
-#  result = prefix.dup
+  prefix = "att "
+  prefix = "att " if params[:lang] == "se"
+  prefix = "das " if params[:lang] == "de"
+  prefix = "the " if params[:lang] == "en"
+  result = prefix.dup
 
 # 800.times do |i|
 #    ch = string_follower.random(prefix)
