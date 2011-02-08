@@ -12,9 +12,9 @@ end
 get '/text/:lang' do
 
   string_follower = StringFollower.new
-#  folder = "data/" + params[:lang]
+  folder = "data/" + params[:lang]
 
-#  file_names= Dir.entries(folder)-[".", ".."]
+  file_names= Dir.entries(folder)-[".", ".."]
 
 #  files = file_names.map { |file_name| File.new(folder + "/" + file_name, "rt", {:encoding => "utf-8"}) }
 
