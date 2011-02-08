@@ -3,7 +3,7 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/lib'
 
 require "rubygems"
 require "sinatra"
-# require "string_follower"
+require "string_follower"
 
 get "/" do
   redirect "/index.html"
