@@ -1,0 +1,25 @@
+/* 
+    Document   : lorem
+    Created on : 2011-feb-07, 22:45:26
+    Author     : albintheander
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+#text {
+    display: none;
+    border-color: black;
+    border-style: solid;
+    border-width: thin;
+    background-color: aqua;
+}
+
