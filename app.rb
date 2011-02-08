@@ -26,6 +26,7 @@ get '/text/:lang' do
   prefix = "att " if params[:lang] == "se"
   prefix = "das " if params[:lang] == "de"
   prefix = "the " if params[:lang] == "en"
+  prefix = "mais" if params[:lang] == "fr"
   result = prefix.dup
 
  800.times do |i|
