@@ -6,7 +6,7 @@ require "sinatra"
 require "string_follower"
 
 get "/" do
-  redirect "/index.html"
+  send_file "public/index.html"
 end
 
 get '/text/:lang' do
