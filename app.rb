@@ -10,18 +10,8 @@ get "/" do
 end
 
 get '/text/:lang/:chars' do
-
-  string_follower = StringFollower.new
-  folder = "data/" + params[:lang]
+  string_follower = get_string_follower(params[:lang])
   len = params[:chars].to_i
-
-  file_names= Dir.entries(folder)-[".", ".."]
-
-  files = file_names.map { |file_name| File.new(folder + "/" + file_name, "rt", {:encoding => "utf-8"}) }
-
-  files[0].lines do |line|
-    string_follower.feed(line.downcase + " ")
-  end
 
   prefix = "att "
   prefix = "att " if params[:lang] == "se"
@@ -36,5 +26,28 @@ get '/text/:lang/:chars' do
     prefix << ch
     prefix[0] = ""
   end
+  print prefix
   result
+end
+
+def get_string_follower(lang)
+	if not defined? @@followers
+		@@followers = Hash.new
+	end
+	if @@followers[lang] == nil
+		@@followers[lang] = StringFollower.new
+		feed_file(@@followers[lang], lang)
+	end
+	return @@followers[lang]
+end
+
+def feed_file(string_follower, lang)
+  folder = "data/" + lang
+  file_names= Dir.entries(folder)-[".", ".."]
+
+  files = file_names.map { |file_name| File.new(folder + "/" + file_name, "rt", {:encoding => "utf-8"}) }
+
+  files[0].lines do |line|
+	string_follower.feed(line.downcase + " ")
+  end
 end
