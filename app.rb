@@ -9,10 +9,11 @@ get "/" do
   send_file "public/index.html"
 end
 
-get '/text/:lang' do
+get '/text/:lang/:chars' do
 
   string_follower = StringFollower.new
   folder = "data/" + params[:lang]
+  len = params[:chars].to_i
 
   file_names= Dir.entries(folder)-[".", ".."]
 
@@ -29,7 +30,7 @@ get '/text/:lang' do
   prefix = "mais" if params[:lang] == "fr"
   result = prefix.dup
 
- 800.times do |i|
+ len.times do |i|
     ch = string_follower.random(prefix)
     result << ch
     prefix << ch
